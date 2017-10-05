@@ -11,5 +11,6 @@ const containerStyle = {
 export default ({ children }) =>
 // Destructure this.props.children
   <div style={containerStyle}>
+    <h3>MySweetSite</h3>
     { children() }
   </div>
