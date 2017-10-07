@@ -2,54 +2,46 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
 
-const styles = {
-  container: {
-    margin: `0 auto`,
-    maxWidth: 650,
-    padding: `1.25rem 1rem`,
-  },
-  title: {
-    display: `inline`,
-  },
-  linkLi: {
-    display: `inline-block`,
-    marginRight: `1rem`,
-  },
-  homeLi: {
-    textShadow: `none`,
-    backgroundImage: `none`,
-  },
-  navUl: {
-    listStyle: `none`,
-    float: `right`,
-  },
-  header: {
-    marginBottom: `1.5rem`,
-  },
-}
-
-const ListLink = ({ to, children }) =>
-  <li style={styles.linkLi}>
-    <Link to={to}>
-      {children}
-    </Link>
-  </li>
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 650;
+  padding: 1.25rem 1rem;
+`
+const Header = styled.header`
+  margin-bottom: 1.5rem;
+`
+const SiteTitleLink = styled(Link)`
+  text-shadow: none;
+  background-image: none;
+`
+const SiteTitle = styled.h3`
+  display: inline;
+`
+const NavigationList = styled.ul`
+  list-style: none;
+  float: right;
+`
+const NavigationItem = styled(Link)`
+  display: inline-block;
+  margin-right: 1rem;
+`
 
 export default ({ children }) =>
 // Destructure this.props.children
-  <div style={styles.container}>
-    <header style={styles.header}>
-      <Link to="/" style={styles.homeLi}>
-        <h3 style={styles.title}>
+  <Container>
+    <Header>
+      <SiteTitleLink to="/">
+        <SiteTitle>
           MySweetSite
-        </h3>
-      </Link>
-      <ul style={styles.navUl}>
-        <ListLink to="/">Home</ListLink>
-        <ListLink to="/about">About</ListLink>
-        <ListLink to="/contact">Contact</ListLink>
-      </ul>
-    </header>
+        </SiteTitle>
+      </SiteTitleLink>
+      <NavigationList>
+        <NavigationItem to="/"> Home </NavigationItem>
+        <NavigationItem to="/about"> About </NavigationItem>
+        <NavigationItem to="/contact"> Contact </NavigationItem>
+      </NavigationList>
+    </Header>
     { children() }
-  </div>
+  </Container>
