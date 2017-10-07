@@ -8,4 +8,5 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`
   ],
+  pathPrefix: '/gatsby-layout-components-example'
 }
